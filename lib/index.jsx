@@ -22,11 +22,11 @@ const BLACKLISTED_PROPERTIES = [
 ]
 
 class Mobi {
-  // static makeArray(arg) {
-  //   return arg.constructor !== Array
-  //     ? arg.split(',').map(_ => _.replace(/(?:^\s+|\s+$)/, ''))
-  //     : arg
-  // }
+  static makeArray(arg) {
+    return arg.constructor !== Array
+      ? arg.split(',').map(_ => _.replace(/(?:^\s+|\s+$)/, ''))
+      : arg
+  }
 
   constructor() {
     this.options = {
