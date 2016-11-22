@@ -1,7 +1,7 @@
 {
   "name": "mobi-css",
-  "version": "0.1.0",
-  "description": "Strip out CSS that affects Mobi validation and/or performance.",
+  "version": "0.1.1",
+  "description": "Strip out CSS that affects Mobi validation and/or performance. Returns a promise object.",
   "main": "dist/index.js",
   "author": "Maxwell Simmer (http://maxwellsimmer.com)",
   "scripts": {
