@@ -1,0 +1,3 @@
+body{line-height:1;}
+@namespace epub url(http://www.idpf.org/2007/ops);
+epub|section{color:blue;}
