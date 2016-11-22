@@ -22,6 +22,12 @@ const BLACKLISTED_PROPERTIES = [
 ]
 
 class Mobi {
+  // static makeArray(arg) {
+  //   return arg.constructor !== Array
+  //     ? arg.split(',').map(_ => _.replace(/(?:^\s+|\s+$)/, ''))
+  //     : arg
+  // }
+
   constructor() {
     this.options = {
       input: null,
@@ -86,8 +92,8 @@ class Mobi {
         }
         resolve(
           this._get('output') !== 'string'
-          ? new Buffer(css.stringify(ast))
-          : css.stringify(ast)
+            ? new Buffer(css.stringify(ast))
+            : css.stringify(ast)
         )
       })
     )
@@ -115,14 +121,8 @@ class Mobi {
         throw new Error(`Missing required argument: \`${_}\``)
       }
     })
-    if (this._get('input').constructor !== Array) {
-      this._set('input',
-        this._get('input')
-        .slice(',')
-        .map(_ => _.replace(/(?:^\s+|\s+$)/, ''))
-      )
-    }
-
+    const input = this.makeArray(this._get('input'))
+    this._set('input', input)
     return new Promise(resolve /* , reject */ =>
       this.promiseWrap(this._get('input'))
       .catch(err => console.error(err)) // eslint-disable-line no-console

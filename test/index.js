@@ -4,13 +4,25 @@ import path from 'path'
 import fs from 'fs'
 import mobi from '../dist/index'
 
-test('It loads an array of files', t => {
-  t.plan(1)
-  const files = [
-    path.join(__dirname, 'styles1.css'),
-    path.join(__dirname, 'styles2.css')
-  ]
+test('It loads an individual file or an array of files', t => {
+  t.plan(4)
+
+  const makeArray = arg =>
+    arg.constructor !== Array
+      ? arg.split(',').map(_ => _.replace(/(?:^\s+|\s+$)/, ''))
+      : arg
+
+  const files = makeArray([
+    'styles1.css',
+    'styles2.css'
+  ])
+
+  const file = makeArray('styles1.css')
+
+  t.true(Array.isArray(files))
+  t.true(Array.isArray(file))
   t.is(files.length, 2)
+  t.is(file.length, 1)
 })
 
 test('It parses the files serially', t => {
