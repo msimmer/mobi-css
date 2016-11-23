@@ -22,7 +22,7 @@ const BLACKLISTED_PROPERTIES = [
 ]
 
 class Mobi {
-  static makeArray(arg) {
+  static arrayFrom(arg) {
     return arg.constructor !== Array
       ? arg.split(',').map(_ => _.replace(/(?:^\s+|\s+$)/, ''))
       : arg
@@ -111,6 +111,10 @@ class Mobi {
     return new Promise(resolve/* , reject */ =>
       Promise.all(promises).then(results => resolve(results))
     )
+  }
+
+  makeArray(arg) {
+    return this.constructor.arrayFrom(arg)
   }
 
   strip({ ...args }) {
