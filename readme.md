@@ -1,6 +1,9 @@
 
 # mobi-css
 
+[![Build Status](https://img.shields.io/travis/msimmer/mobi-css/master.svg?style=flat)](https://travis-ci.org/msimmer/mobi-css)
+[![NPM version](https://badge.fury.io/js/mobi-css.svg)](http://badge.fury.io/js/mobi-css)
+
 Strip out CSS that affects Mobi validation and/or performance. Returns a promise object.
 
 ## Install
